@@ -4,6 +4,7 @@ const users = [
 		userName: "Alice",
 		lastName: "Johnson",
 		age: 30,
+		gender: "female",
 		address: {
 			street: "Oak Avenue",
 			number: 45,
@@ -15,6 +16,7 @@ const users = [
 		userName: "Charlie",
 		lastName: "Smith",
 		age: 27,
+		gender: "female",
 		address: {
 			street: "Maple Street",
 			number: 101,
@@ -26,6 +28,7 @@ const users = [
 		userName: "Diana",
 		lastName: "Brown",
 		age: 35,
+		gender: "female",
 		address: {
 			street: "Elm Road",
 			number: 88,
@@ -37,17 +40,19 @@ const users = [
 		userName: "Eve",
 		lastName: "Davis",
 		age: 21,
+		gender: "female",
 		address: {
 			street: "Birch Lane",
 			number: 7,
 			house: false,
 		},
-		role: "Intern",
+		role: "CEO",
 	},
 	{
 		userName: "Frank",
 		lastName: "Miller",
 		age: 40,
+		gender: "male",
 		address: {
 			street: "Pine Street",
 			number: 200,
@@ -59,6 +64,7 @@ const users = [
 		userName: "Grace",
 		lastName: "Wilson",
 		age: 28,
+		gender: "female",
 		address: {
 			street: "Cedar Avenue",
 			number: 99,
@@ -70,6 +76,7 @@ const users = [
 		userName: "Henry",
 		lastName: "Moore",
 		age: 33,
+		gender: "male",
 		address: {
 			street: "Poplar Road",
 			number: 16,
@@ -81,6 +88,7 @@ const users = [
 		userName: "Ivy",
 		lastName: "Taylor",
 		age: 25,
+		gender: "female",
 		address: {
 			street: "Willow Street",
 			number: 52,
@@ -92,6 +100,7 @@ const users = [
 		userName: "Jack",
 		lastName: "Anderson",
 		age: 29,
+		gender: "male",
 		address: {
 			street: "Spruce Avenue",
 			number: 78,
@@ -103,6 +112,7 @@ const users = [
 		userName: "Karen",
 		lastName: "Thomas",
 		age: 37,
+		gender: "female",
 		address: {
 			street: "Chestnut Street",
 			number: 65,
@@ -114,6 +124,7 @@ const users = [
 		userName: "Leo",
 		lastName: "Harris",
 		age: 22,
+		gender: "male",
 		address: {
 			street: "Fir Lane",
 			number: 10,
@@ -123,4 +134,27 @@ const users = [
 	},
 ]
 
-console.log("hello")
+
+users.forEach((user) => {
+	document.querySelector(".container").innerHTML += `
+	<article class="card">
+	<div class="card-image">
+	<img src="${user.gender === 'male' ? './assets/02.jpg' : './assets/01.jpg'}" alt="user name" />
+	<span class="card-title">${user.userName}</span>
+	</div>
+
+	<div class="card-content">
+		<ul class="list-group">
+			<li class="list-group-item"><strong>Name:</strong> ${user.userName}</li>
+			<li class="list-group-item"><strong>Age:</strong> ${user.age}</li>
+			<li class="list-group-item">
+				<strong>Address:</strong> ${user.address.number} ${user.address.street}
+				<img class="list-group-img" src="${user.address.house === true ? './assets/house.svg' : './assets/apart.svg'}" alt="" />
+			</li>
+			<li class="list-group-item">
+				<strong>Role:</strong> ${user.role}
+			</li>
+		</ul>
+	</div>
+	</article>`;
+});
